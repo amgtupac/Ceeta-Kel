@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Proposal – Ceeta-Kel | HillsX</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Josefin+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F7F2EC;
+      --warm-white: #FDFAF6;
+      --terra: #C4622D;
+      --terra-light: #E8835A;
+      --terra-pale: #F5E6DF;
+      --ink: #111111;
+      --ink-soft: #333333;
+      --muted: #666666;
+      --border: #E2D8CF;
+      --border-strong: #C8B8A8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--warm-white);
+      color: var(--ink);
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ══ COVER ══ */
+    .cover {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 45%;
+      height: 100%;
+      background: var(--terra-pale);
+      clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+      z-index: 0;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      width: 120px;
+      height: 3px;
+      background: var(--terra);
+    }
+
+    .cover-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 48px 64px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--terra);
+      border-radius: 50%;
+    }
+
+    .brand-name {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .doc-info {
+      text-align: right;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .cover-body {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 64px;
+    }
+
+    .proposal-eyebrow {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .proposal-eyebrow::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--terra);
+    }
+
+    .cover-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 400;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .cover-headline em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    .cover-tagline {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    .cover-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border: 1px solid var(--border-strong);
+      padding: 8px 18px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .pill strong {
+      color: var(--terra);
+      font-weight: 600;
+    }
+
+    .cover-footer {
+      position: relative;
+      z-index: 1;
+      padding: 32px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .cover-footer-text {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .cover-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 400;
+      color: var(--border-strong);
+      line-height: 1;
+    }
+
+    /* ══ PAGES ══ */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 64px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .page:last-child {
+      border-bottom: none;
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 80px;
+      width: 3px;
+      height: 40px;
+      background: var(--terra);
+    }
+
+    .sec-eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 10px;
+    }
+
+    .sec-num-bg {
+      font-family: 'Playfair Display', serif;
+      font-size: 100px;
+      font-weight: 700;
+      color: var(--terra-pale);
+      line-height: 1;
+      position: absolute;
+      right: 64px;
+      top: 60px;
+      user-select: none;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 24px;
+      line-height: 1.15;
+      position: relative;
+    }
+
+    p {
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+      line-height: 1.8;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ══ SCOPE ══ */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .scope-item {
+      background: var(--warm-white);
+      padding: 24px 26px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .scope-item:nth-child(2n) {
+      border-right: none;
+    }
+
+    .scope-item:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    .scope-item h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .scope-item ul {
+      list-style: none;
+    }
+
+    .scope-item ul li {
+      color: var(--ink-soft);
+      font-size: 13px;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scope-item ul li:last-child {
+      border-bottom: none;
+    }
+
+    .scope-item ul li::before {
+      content: '—';
+      color: var(--terra-light);
+      font-size: 12px;
+    }
+
+    /* ══ TIMELINE ══ */
+    .timeline {
+      margin-top: 16px;
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tl-item:last-child {
+      border-bottom: none;
+    }
+
+    .tl-left {
+      padding: 24px 20px 24px 0;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .tl-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .tl-week-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--terra);
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .tl-right {
+      padding: 24px 0 24px 24px;
+    }
+
+    .tl-right h4 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+
+    .tl-right p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    /* ══ PRICING ══ */
+    .pricing-wrap {
+      margin-top: 16px;
+    }
+
+    .pricing-top {
+      background: var(--terra);
+      padding: 32px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pricing-top h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #fff;
+      font-style: italic;
+    }
+
+    .big-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .pricing-body {
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+
+    .p-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 36px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .p-row:last-child {
+      border-bottom: none;
+    }
+
+    .p-row span:first-child {
+      color: var(--ink-soft);
+    }
+
+    .p-row span:last-child {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .p-row.total {
+      background: var(--cream);
+      padding: 20px 36px;
+    }
+
+    .p-row.total span:first-child {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .p-row.total span:last-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: var(--terra);
+      font-weight: 700;
+    }
+
+    .pay-note {
+      margin-top: 16px;
+      background: var(--terra-pale);
+      border-left: 3px solid var(--terra);
+      padding: 18px 22px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* ══ WHY ══ */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .why-card {
+      padding: 24px 20px;
+      background: var(--cream);
+      border-top: 3px solid var(--terra);
+    }
+
+    .why-icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .why-card h4 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ══ CTA ══ */
+    .cta-wrap {
+      margin-top: 16px;
+      background: var(--ink);
+      padding: 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-wrap::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 300px;
+      color: rgba(255, 255, 255, 0.03);
+      position: absolute;
+      top: -60px;
+      left: 20px;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .cta-wrap h2 {
+      color: #fff;
+      font-size: 36px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .cta-wrap p {
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 420px;
+      margin: 0 auto 28px;
+      font-size: 13px;
+      position: relative;
+    }
+
+    .cta-contact {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cta-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terra-light);
+    }
+
+    .cta-email {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-style: italic;
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      background: var(--cream);
+      text-align: center;
+      padding: 32px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer span {
+      color: var(--terra);
+    }
+
+    @media (max-width: 640px) {
+      .cover::before {
+        display: none;
+      }
+
+      .cover-header,
+      .cover-body,
+      .cover-footer {
+        padding: 32px 28px;
+      }
+
+      .page {
+        padding: 50px 28px;
+      }
+
+      .scope-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .tl-item {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .pricing-top {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .cta-wrap {
+        padding: 36px 24px;
+      }
+
+      .sec-num-bg {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ COVER ══ -->
+  <div class="cover">
+    <div class="cover-header">
+      <div class="brand-mark">
+        <div class="brand-dot"></div>
+        <div class="brand-name">HillsX Studio</div>
+      </div>
+      <div class="doc-info">
+        <div>Website Proposal</div>
+        <div>May 2026</div>
+        <div>Confidential</div>
+      </div>
+    </div>
+
+    <div class="cover-body">
+      <div class="proposal-eyebrow">Web Development Proposal</div>
+      <div class="cover-headline">Ceeta-Kel<br /><em>Guest House</em></div>
+      <div class="cover-tagline">A Complete Digital Presence for Your Property</div>
+      <div class="cover-pills">
+        <div class="pill">Prepared for <strong>Ceeta-Kel</strong></div>
+        <div class="pill">By <strong>HillsX</strong></div>
+        <div class="pill">Budget <strong>GHS 2,680</strong></div>
+        <div class="pill">Timeline <strong>4 Weeks</strong></div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-footer-text">Confidential — For Ceeta-Kel Use Only</div>
+      <div class="cover-number">01</div>
+    </div>
+  </div>
+
+
+  <!-- ══ 01. INTRODUCTION ══ -->
+  <div class="page">
+    <div class="sec-num-bg">01</div>
+    <div class="sec-eyebrow">Section 01</div>
+    <h2>Introduction</h2>
+    <p>HillsX is a web development studio dedicated to building clean, modern, and purposeful websites for businesses
+      that want to make a real impression online. We focus on hospitality and service brands — creating digital
+      experiences that feel as welcoming as the places they represent.</p>
+    <p>This proposal has been prepared specifically for Ceeta-Kel Guest House, outlining how we will design and develop
+      a professional website that showcases your property, attracts more guests, and makes it effortless for people to
+      find and contact you — built to last and easy to manage.</p>
+  </div>
+
+
+  <!-- ══ 02. PROJECT UNDERSTANDING ══ -->
+  <div class="page">
+    <div class="sec-num-bg">02</div>
+    <div class="sec-eyebrow">Section 02</div>
+    <h2>Understanding<br />Your Project</h2>
+    <p>Ceeta-Kel Guest House offers comfortable, welcoming accommodation for guests — whether visiting for business,
+      leisure, or a short stay. In today's world, a well-built website is often the deciding factor between a guest
+      choosing your property or moving on to the next.</p>
+    <p>Based on our discussions, Ceeta-Kel needs a website that:</p>
+    <ul style="margin: 12px 0 12px 18px; color: var(--ink-soft); line-height: 2.1;">
+      <li>Presents rooms and facilities in a warm, visually appealing way</li>
+      <li>Lets guests make inquiries or bookings quickly and easily</li>
+      <li>Builds trust and credibility with first-time visitors</li>
+      <li>Works beautifully on mobile phones where most searches happen</li>
+      <li>Is fast, reliable, and straightforward to maintain</li>
+    </ul>
+    <p>The goal: turn every website visit into a genuine guest inquiry.</p>
+  </div>
+
+
+  <!-- ══ 03. SCOPE OF WORK ══ -->
+  <div class="page">
+    <div class="sec-num-bg">03</div>
+    <div class="sec-eyebrow">Section 03</div>
+    <h2>Scope of Work</h2>
+    <p>A clear breakdown of everything that will be designed and delivered for Ceeta-Kel Guest House:</p>
+    <div class="scope-grid">
+      <div class="scope-item">
+        <h4>Pages Included</h4>
+        <ul>
+          <li>Home Page</li>
+          <li>About Us</li>
+          <li>Rooms &amp; Accommodation</li>
+          <li>Facilities / Amenities</li>
+          <li>Gallery</li>
+          <li>Contact Page</li>
+        </ul>
+      </div>
+      <div class="scope-item">
+        <h4>Key Features</h4>
+        <ul>
+          <li>Online Booking / Inquiry Form</li>
+          <li>Photo Gallery &amp; Room Showcase</li>
+          <li>Google Maps Integration</li>
+          <li>WhatsApp Chat Button</li>
+          <li>Mobile Responsive Design</li>
+          <li>Fast Loading &amp; SEO Ready</li>
+        </ul>
+      </div>
+      <div class="scope-item">
+        <h4>Design Deliverables</h4>
+        <ul>
+          <li>Full UI Design Mockups</li>
+          <li>Custom Color Scheme</li>
+          <li>Logo Placement &amp; Branding</li>
+          <li>Optimized Images</li>
+        </ul>
+      </div>
+      <div class="scope-item">
+        <h4>Technical Stack</h4>
+        <ul>
+          <li>HTML / CSS / JavaScript</li>
+          <li>Responsive Framework</li>
+          <li>Contact Form Backend</li>
+          <li>Netlify Hosting</li>
+          <li>Custom Domain Setup</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 04. DESIGN APPROACH ══ -->
+  <div class="page">
+    <div class="sec-num-bg">04</div>
+    <div class="sec-eyebrow">Section 04</div>
+    <h2>Design Approach</h2>
+    <p>For Ceeta-Kel Guest House, we will create a warm, inviting design — one that feels personal and homely while
+      still being polished and professional. The kind of website that makes a guest feel at ease before they even
+      arrive.</p>
+    <ul style="margin: 12px 0 12px 18px; color: var(--ink-soft); line-height: 2.3;">
+      <li><strong style="color:var(--ink);">Warm visual tone</strong> — earthy, welcoming colors that reflect a
+        comfortable stay</li>
+      <li><strong style="color:var(--ink);">Photography-led</strong> — rooms and spaces front and centre to inspire
+        confidence</li>
+      <li><strong style="color:var(--ink);">Mobile-first</strong> — perfect on phones before anything else</li>
+      <li><strong style="color:var(--ink);">Easy navigation</strong> — guests reach what they need in two taps</li>
+      <li><strong style="color:var(--ink);">Strong calls-to-action</strong> — "Book Now" and "WhatsApp Us" always
+        visible</li>
+      <li><strong style="color:var(--ink);">Fast &amp; lightweight</strong> — optimized images, clean code, quick load
+        everywhere</li>
+    </ul>
+  </div>
+
+
+  <!-- ══ 05. TIMELINE ══ -->
+  <div class="page">
+    <div class="sec-num-bg">05</div>
+    <div class="sec-eyebrow">Section 05</div>
+    <h2>Project Timeline</h2>
+    <p>Estimated completion: <strong style="color:var(--terra)">4 weeks</strong> from kickoff and receipt of initial
+      payment.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-label">Week</div>
+          <div class="tl-week-num">1</div>
+        </div>
+        <div class="tl-right">
+          <h4>Discovery &amp; Design Mockups</h4>
+          <p>Gather content, brand assets, and photos. Deliver full mockups for your review and sign-off.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-label">Week</div>
+          <div class="tl-week-num">2</div>
+        </div>
+        <div class="tl-right">
+          <h4>Development — Core Pages</h4>
+          <p>Build Home, About, Rooms, and Facilities pages with full design and responsiveness applied.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-label">Week</div>
+          <div class="tl-week-num">3</div>
+        </div>
+        <div class="tl-right">
+          <h4>Features &amp; Integrations</h4>
+          <p>Booking form, gallery, WhatsApp button, Google Maps, and contact page fully integrated.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-label">Week</div>
+          <div class="tl-week-num">4</div>
+        </div>
+        <div class="tl-right">
+          <h4>Testing, Review &amp; Launch</h4>
+          <p>Full cross-device testing, final revisions, domain connection, go-live, and client handover.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 06. PRICING ══ -->
+  <div class="page">
+    <div class="sec-num-bg">06</div>
+    <div class="sec-eyebrow">Section 06</div>
+    <h2>Investment &amp; Pricing</h2>
+    <div class="pricing-wrap">
+      <div class="pricing-top">
+        <h3>Ceeta-Kel — Full Website &amp; Domain Package</h3>
+        <div class="big-price">GHS 2,680</div>
+      </div>
+      <div class="pricing-body">
+        <div class="p-row"><span>UI/UX Design &amp; Mockups</span><span>Included</span></div>
+        <div class="p-row"><span>Full Website Development (6 Pages)</span><span>Included</span></div>
+        <div class="p-row"><span>Booking / Inquiry Form</span><span>Included</span></div>
+        <div class="p-row"><span>Mobile Responsive Design</span><span>Included</span></div>
+        <div class="p-row"><span>Gallery, Maps &amp; WhatsApp Integration</span><span>Included</span></div>
+        <div class="p-row"><span>Hosting (Netlify)</span><span>Included</span></div>
+        <div class="p-row"><span>Domain Name (e.g. ceetakel.com) — 1 Year</span><span>GHS 180</span></div>
+        <div class="p-row total"><span>Total Project Cost</span><span>GHS 2,680</span></div>
+      </div>
+      <div class="pay-note">
+        💳 <strong style="color:var(--ink);">Payment Structure:</strong> 50% upfront (GHS 1,250) to begin work — 50%
+        balance (GHS 1,250) upon completion before final handover.<br /><br />
+        🌐 <strong style="color:var(--ink);">Domain Note:</strong> Domain name fee (GHS 180) is a separate yearly
+        renewal. Hosting is provided free via Netlify.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 07. WHY HILLSX ══ -->
+  <div class="page">
+    <div class="sec-num-bg">07</div>
+    <div class="sec-eyebrow">Section 07</div>
+    <h2>Why Choose HillsX</h2>
+    <p>We build websites that work for your business — not just look good in a screenshot.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h4>Guest-Focused Design</h4>
+        <p>Every decision is made with your guests in mind. We build to turn visits into bookings.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📱</div>
+        <h4>Mobile-First</h4>
+        <p>Most guests search on their phones. Your site will look perfect on every screen.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h4>Clear Communication</h4>
+        <p>Regular updates throughout. You always know where the project stands.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h4>4-Week Delivery</h4>
+        <p>Structured milestones keep everything on track and on time.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛠️</div>
+        <h4>Post-Launch Support</h4>
+        <p>We stay available after launch for minor fixes and guidance.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏡</div>
+        <h4>Hospitality Experience</h4>
+        <p>We know what guests look for online — and we design around that.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ 08. NEXT STEPS ══ -->
+  <div class="page">
+    <div class="sec-num-bg">08</div>
+    <div class="sec-eyebrow">Section 08</div>
+    <h2>Next Steps</h2>
+    <div class="cta-wrap">
+      <h2>Let's Build Something Great</h2>
+      <p>If this proposal aligns with your vision for Ceeta-Kel Guest House, we are ready to get started right away.
+        Simply reach out to confirm and we'll arrange the first payment and kickoff.</p>
+      <div class="cta-contact">
+        <span class="cta-label">Reach HillsX</span>
+        <a href="mailto:ittztupac@gmail.com" class="cta-email">ittztupac@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    Prepared by <span>HillsX Studio</span> &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Confidential
+  </footer>
+
+</body>
+
+</html>
